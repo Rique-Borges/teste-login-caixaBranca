@@ -1,32 +1,15 @@
-# Login System README
+# Erros Encontrados no Código
 
-Este é um sistema de login básico em Java que utiliza um banco de dados MySQL. O objetivo deste README é destacar os principais erros presentes no código.
+Este é um resumo dos erros identificados no código fornecido:
 
-## Erros no Código
+1. **Erro de Digitação na Classe Driver:** A classe `com.mysql.Driver.Manager` está incorretamente especificada. Deve ser `com.mysql.jdbc.Driver`.
 
-1. **Nome da Classe do Driver MySQL Incorreto:**
-   O nome da classe do driver MySQL está incorreto. Deveria ser "com.mysql.jdbc.Driver".
+2. **Falta de Tratamento de Exceções:** As exceções estão sendo tratadas de forma inadequada. Em vez de apenas capturar e não fazer nada (`catch (Exception e) {}`), é importante pelo menos registrar ou lançar a exceção para que ela não seja ignorada silenciosamente.
 
-2. **Tratamento Inadequado de Exceções:**
-   O tratamento de exceções no método `conectarBD()` não está adequado. Embora capture a exceção, apenas imprime a mensagem de erro. Seria melhor tratar a exceção de forma adequada, por exemplo, informando o usuário ou registrando o erro em um arquivo de log.
+3. **Injeção de SQL:** A construção da consulta SQL não está usando prepared statements, tornando o código vulnerável a ataques de injeção de SQL.
 
-3. **Variáveis Públicas:**
-   As variáveis `nome` e `result` na classe `User` estão declaradas como públicas, o que não é uma boa prática de programação. Elas deveriam ser privadas e acessadas por meio de métodos getters e setters.
+5. **Não fechamento da Conexão e dos Recursos do Banco de Dados:** As conexões com o banco de dados e outros recursos não estão sendo fechados adequadamente após o uso, o que pode levar a vazamentos de recursos e problemas de desempenho.
 
-4. **Vulnerabilidade a Ataques de Injeção de SQL:**
-   O código na função `verificarUsuario()` concatena strings para formar uma consulta SQL, o que torna o sistema vulnerável a ataques de injeção de SQL. Deveria ser utilizado `PreparedStatement` com parâmetros para evitar esse tipo de vulnerabilidade.
+6. **Ausência de Documentação:** O código não contém documentação adequada, como comentários explicativos para as funções e métodos.
 
-## Como Corrigir
-
-Para corrigir os erros mencionados acima, sugere-se:
-
-- Corrigir o nome da classe do driver MySQL para "com.mysql.jdbc.Driver".
-- Melhorar o tratamento de exceções para fornecer feedback adequado ao usuário ou registrar erros em um log.
-- Alterar as variáveis `nome` e `result` para serem privadas e fornecer métodos getters e setters para acessá-las.
-- Utilizar `PreparedStatement` com parâmetros para evitar ataques de injeção de SQL.
-
-## Executando o Código
-
-Para executar o código, é necessário ter o MySQL instalado e configurado. Além disso, é preciso incluir o driver MySQL no classpath do projeto.
-
-
+Esses problemas precisam ser corrigidos para garantir a segurança, manutenibilidade e eficiência do código.

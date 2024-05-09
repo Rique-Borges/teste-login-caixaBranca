@@ -13,3 +13,6 @@ Este é um resumo dos erros identificados no código fornecido:
 6. **Ausência de Documentação:** O código não contém documentação adequada, como comentários explicativos para as funções e métodos.
 
 Esses problemas precisam ser corrigidos para garantir a segurança, manutenibilidade e eficiência do código.
+
+## **Documentação**
+O código Java foi transformado em um Javadoc para fornecer uma documentação mais detalhada e estruturada do projeto. Cada classe, método e variável foi devidamente documentado para descrever sua finalidade, parâmetros, retorno e possíveis exceções. Além disso, comentários foram adicionados ao longo do código para explicar o que cada parte realiza e como elas se relacionam para atingir os objetivos do programa.

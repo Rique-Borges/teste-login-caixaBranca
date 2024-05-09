@@ -29,7 +29,7 @@ Esses problemas precisam ser corrigidos para garantir a segurança, manutenibili
 
 ![Grafo](fluxo.png)
 
-## O grafo do código possui 12 arestas e 11 nós.
+O grafo do código possui 12 arestas e 11 nós.
 
 \[ V(G) = 12 - 11 + 2 \]
 \[ V(G) = 3 \]

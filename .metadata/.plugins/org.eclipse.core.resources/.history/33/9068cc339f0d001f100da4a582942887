@@ -1,0 +1,68 @@
+package login;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+/**
+ * Classe para operações de login de usuário.
+ */
+public class User {
+
+    /**
+     * Conectar ao banco de dados.
+     * 
+     * @return A conexão estabelecida.
+     */
+    public Connection conectarBD() {
+        Connection conn = null;
+        try {
+            // Carregar o driver JDBC
+            Class.forName("com.mysql.Driver.Manager").newInstance();
+            // URL de conexão com o banco de dados
+            String url = "jdbc:mysql://127.0.0.1/test?user=lopes&password=123";
+            // Estabelecer conexão
+            conn = DriverManager.getConnection(url);
+        } catch (Exception e) {
+            // Lidar com exceções
+        }
+        return conn;
+    }
+
+    // Variáveis de instância
+    /** Nome do usuário. */
+    public String nome = "";
+    /** Resultado da verificação de usuário. */
+    public boolean result = false;
+
+    /**
+     * Verificar usuário no banco de dados.
+     * 
+     * @param login O nome de usuário.
+     * @param senha A senha do usuário.
+     * @return true se o usuário foi encontrado, false caso contrário.
+     */
+    public boolean verificarUsuario(String login, String senha) {
+        String sql = "";
+        Connection conn = conectarBD();
+
+        // INSTRUÇÃO SQL
+        sql += "select nome from usuarios ";
+        sql += "where login = " + "'" + login + "'" + "";
+        sql += " and senha = " + "'" + senha + "'" + "";
+
+        try {
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                // Se encontrou o usuário, atribuir o nome e definir o resultado como verdadeiro
+                nome = rs.getString("nome");
+                result = true;
+            }
+        } catch (Exception e) {
+            // Lidar com exceções
+        }
+        return result;
+    }
+}

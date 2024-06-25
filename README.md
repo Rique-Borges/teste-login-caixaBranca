@@ -92,4 +92,4 @@ As funcionalidades de login e verificação de usuários foram aplicadas dentro 
 
 ---
 
-Para mais detalhes sobre a análise estática do código e o preenchimento do formulário de teste estático, consulte o arquivo `PLANO_DE_TESTE.xls` no repositório.
+Para mais detalhes sobre a análise estática do código e o preenchimento do formulário de teste estático, consulte o arquivo `PLANO DE TESTE LOGIN CAIXA BRANCA.xls` no repositório.
